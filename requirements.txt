@@ -1,0 +1,11 @@
+langchain
+openai
+pandas
+numpy
+tiktoken
+pgvector
+python-dotenv
+fastapi
+psycopg2-binary
+unstructured
+"unstructured[pdf]"
