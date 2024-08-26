@@ -4,7 +4,7 @@ Tiktoken Counter is an API for counting tokens in a text using the Tiktoken libr
 
 ## Purpose
 
-This API is designed to help developers count tokens in a given text, from another service/language, which is particularly useful when working with OpenAI's GPT models, such as GPT-3.5 (ChatGPT) and GPT-4. By utilizing the Tiktoken library, this API provides a simple way to count tokens for specific encodings.
+This API is designed to help developers count tokens in a given text, from another service/language, which is particularly useful when working with OpenAI's GPT models, such as GPT-4o. By utilizing the Tiktoken library, this API provides a simple way to count tokens for specific encodings.
 
 > For example, I use it from inside Laravel (php) code base where I need to estimate tokens without calling any APIs outside the server. Docker makes it super easy to expand with the microservice concept.
 
@@ -43,15 +43,16 @@ This command will tag the image with your GitHub username and push it to the reg
 Here is an example of how to use the API for counting tokens:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"text": "Hello, World!", "encoding": "cl100k_base"}' http://localhost:8000/count
+curl -X POST -H "Content-Type: application/json" -d '{"text": "Hello, World!", "model": "gpt-4o"}' http://localhost:8000/count
 ```
 
 This request will return the number of tokens in the given text.
 
 ```json
 {
-    "tokens": 5
+    "tokens": 5,
+    "encoding": "o200k_base"
 }
 ```
 
-In this example, the `text` parameter contains the text for which you want to count tokens, and the `encoding` parameter specifies the encoding used for tokenization. The default encoding is `cl100k_base`.
+In this example, the `text` parameter contains the text for which you want to count tokens, and the `model` parameter specifies the encoding used for tokenization. The default model is `gpt-4o`.
