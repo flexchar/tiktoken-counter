@@ -15,3 +15,6 @@ publish:
 	docker buildx create --use --name $(BUILDER_NAME) || true
 	docker buildx build --platform $(PLATFORMS) -t $(REMOTE_TAG) --push .
 	docker buildx rm $(BUILDER_NAME)
+	
+clean:
+	docker buildx rm $(BUILDER_NAME)
